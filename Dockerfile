@@ -1,5 +1,5 @@
 # Use an official PHP image with Apache
-FROM php:8.1-apache
+FROM php:8.3-apache
 
 # Install Git and YAML extension dependencies
 RUN apt-get update && apt install -y git libyaml-dev \
