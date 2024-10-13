@@ -15,11 +15,18 @@ legend, label {
   font-size: 1.2rem;
   margin: 0;
   padding: 0 .5rem;
+
+  span.required { color: red; }
 }
 
 legend { line-height: 0; }
 
-button {
+label {
+  display: block;
+  margin: 0 0 .5rem;
+}
+
+button, .btn {
   background-color: var(--primaryColor);
   border: none;
   border-radius: 5px;

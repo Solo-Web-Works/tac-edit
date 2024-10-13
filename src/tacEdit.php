@@ -88,18 +88,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               $domain = $matches[1] ?? '';
               ?>
               <input type="text" name="units[<?php echo $name; ?>][router][rule]" value="<?php echo htmlspecialchars($domain); ?>" />
-            </label><br>
+            </label>
 
             <!-- Middlewares - Replace with Authenticated Checkbox -->
             <label>Authenticated:
               <input type="checkbox" name="units[<?php echo $name; ?>][router][authenticated]" <?php echo in_array('authelia', $data['router']['middlewares']) ? 'checked' : ''; ?> />
-            </label><br>
+            </label>
 
             <!-- Service Data -->
             <h3 class="mt-1">Service</h3>
             <label>Load Balancer Servers:
               <input type="text" name="units[<?php echo $name; ?>][service][loadBalancer][servers][0][url]" value="<?php echo htmlspecialchars($data['service']['loadBalancer']['servers'][0]['url']); ?>" />
-            </label><br>
+            </label>
 
             <label>Pass Host Header:
               <input type="checkbox" name="units[<?php echo $name; ?>][service][loadBalancer][passHostHeader]" <?php echo $data['service']['loadBalancer']['passHostHeader'] ? 'checked' : ''; ?> />

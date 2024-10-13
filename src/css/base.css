@@ -51,6 +51,7 @@ body {
     border-collapse: collapse;
     background-color: var(--bgColor);
     color: var(--textColor);
+    margin-bottom: 3rem;
     width: 100%;
   }
 

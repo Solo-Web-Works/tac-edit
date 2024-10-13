@@ -34,6 +34,8 @@ $files = scandir('../config-test');
         <?php endforeach; ?>
       </tbody>
     </table>
+
+    <a class="btn" href="tacAdd.php">Add a New Host</a>
   </div>
 </body>
 </html>
