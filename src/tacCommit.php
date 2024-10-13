@@ -1,6 +1,8 @@
 <?php
+// Change line below before building docker image
+// $repoDir = '/data';
+$repoDir = '../config-test';
 $file = basename($_GET['file']);
-$repoDir = '/data';
 $commitMessage = "Updated " . $file;
 
 // Run Git commands to commit the changes
