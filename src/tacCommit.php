@@ -3,7 +3,9 @@
 // $repoDir = '/data';
 $repoDir = '../config-test';
 $file = basename($_GET['file']);
-$commitMessage = "Updated " . $file;
+
+// Set the commit message
+$commitMessage = date('Y-m-d H:i:s')." - Updated ".$file;
 
 // Run Git commands to commit the changes
 exec("cd $repoDir && git add $file && git commit -m '$commitMessage'");
@@ -11,4 +13,4 @@ exec("cd $repoDir && git add $file && git commit -m '$commitMessage'");
 echo "Changes committed for $file.";
 ?>
 
-<a href="index.php">Back to file list</a>
+<a href="tacEdit.php?file=<?php echo urlencode($file); ?>">Back to editing</a>
