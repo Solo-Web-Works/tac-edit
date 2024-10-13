@@ -7,7 +7,7 @@ fieldset {
   border: 1px solid var(--borderColor);
   border-radius: 5px;
   margin: 0;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem;
 }
 
 legend, label {
