@@ -18,13 +18,22 @@ $files = scandir('../config-test');
   <div id="wrapper">
     <h1>TAC Stack Config Editor</h1>
 
-    <ul>
-      <?php foreach ($files as $file): ?>
-        <?php if (pathinfo($file, PATHINFO_EXTENSION) === 'yaml' || pathinfo($file, PATHINFO_EXTENSION) === 'yml'): ?>
-          <li><a href="tacEdit.php?file=<?php echo urlencode($file); ?>"><?php echo htmlspecialchars($file); ?></a></li>
-        <?php endif; ?>
-      <?php endforeach; ?>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php foreach ($files as $file): ?>
+          <?php if (pathinfo($file, PATHINFO_EXTENSION) === 'yaml' || pathinfo($file, PATHINFO_EXTENSION) === 'yml'): ?>
+            <tr><td><?php echo htmlspecialchars($file); ?></td> <td><a href="tacEdit.php?file=<?php echo urlencode($file); ?>">Edit</a></td></tr>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
