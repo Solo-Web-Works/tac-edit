@@ -1,7 +1,7 @@
 <?php
 // Remove log lines before building docker image
 error_reporting(E_ALL & ~E_NOTICE);
-ini_set("log_errors", TRUE);
+ini_set("log_errors", true);
 ini_set("error_log", "../logs/error.log");
 
 // Change line below before building docker image
