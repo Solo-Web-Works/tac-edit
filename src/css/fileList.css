@@ -1,0 +1,42 @@
+/**
+  * TAC-Edit File List Styles
+  * @author Keith Solomon
+  */
+
+.fileList, .fileEntries {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 3rem;
+  width: 100%;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cell {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    min-width: 9.375rem;
+    padding: .5rem 1rem;
+  }
+
+  .heading { font-weight: 600; }
+
+  .fileHead {
+    background-color: var(--primaryColor);
+    color: var(--textColor);
+    font-size: 1.2rem;
+    padding: .4rem 0;
+  }
+
+  .fileEntry:nth-child(even) {
+    border-bottom: 1px solid var(--borderColor);
+    border-top: 1px solid var(--borderColor);
+  }
+}
+
+.fileEntries {
+  margin-bottom: 0;
+}

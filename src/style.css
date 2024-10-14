@@ -8,17 +8,23 @@
 @import url(css/reset.css);
 @import url(css/utilities.css);
 @import url(css/base.css);
+@import url(css/fileList.css);
 @import url(css/form.css);
+@import url(css/buttons.css);
 
 /* Set up style variables */
 :root {
-  --bgColor:   #121212;
-  --textColor: #e0e0e0;
-  --linkColor: #8eb2e1;
+  --bgColor:     #121212;
+  --textColor:   #e0e0e0;
+  --linkColor:   #8eb2e1;
+  --borderColor: #333;
 
-  --borderColor:      #333;
-  --primaryColor:     #17466e;
-  --secondaryColor:   #8eb2e1;
-  --dangerColor:      #8e1717;
-  --dangerHoverColor: #e18e8e;
+  --primaryColor:   #17466e;
+  --primaryHover:   color-mix(in srgb, var(--primaryColor) 80%, var(--textColor) 20%);
+  --secondaryColor: #8eb2e1;
+  --secondaryHover: color-mix(in srgb, var(--secondaryColor) 70%, var(--primaryColor) 30%);
+  --successColor:   #17a667;
+  --successHover:   color-mix(in srgb, var(--successColor) 60%, var(--textColor) 40%);
+  --dangerColor:    #8e1717;
+  --dangerHover:    color-mix(in srgb, var(--dangerColor) 80%, var(--textColor) 20%);
 }

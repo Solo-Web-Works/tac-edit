@@ -45,29 +45,6 @@ body {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-
-  /* Table styles */
-  table {
-    border-collapse: collapse;
-    background-color: var(--bgColor);
-    color: var(--textColor);
-    margin-bottom: 3rem;
-    width: 100%;
-  }
-
-  th, td {
-    border: 1px solid var(--borderColor);
-    padding: .5rem;
-    text-align: left;
-  }
-
-  th {
-    background-color: var(--primaryColor);
-    color: var(--textColor);
-    font-size: 1.1rem;
-  }
-
-  tr:nth-child(even) { background-color: var(--borderColor); }
 }
 
 #wrapper {
