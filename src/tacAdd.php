@@ -1,4 +1,9 @@
 <?php
+// Remove log lines before building docker image
+error_reporting(E_ALL & ~E_NOTICE);
+ini_set("log_errors", true);
+ini_set("error_log", "../logs/error.log");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
   // Gather form data
   $newHostName = $_POST['newHostName'];
