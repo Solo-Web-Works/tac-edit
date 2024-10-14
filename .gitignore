@@ -1,1 +1,3 @@
 config-test
+logs/*.log
+versions/*.yml
