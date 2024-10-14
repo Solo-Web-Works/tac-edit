@@ -35,7 +35,7 @@ $files = scandir('../config-test');
       </tbody>
     </table>
 
-    <a class="btn" href="tacAdd.php">Add a New Host</a>
+    <a class="btn" href="tacAdd.php">Add a New Host</a> <a class="btn del"  href="tacDelete.php">Delete Hosts</a>
   </div>
 </body>
 </html>

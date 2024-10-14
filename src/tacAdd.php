@@ -56,8 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
     <h1>TAC Stack Config Editor</h1>
     <h2>Add a New Host</h2>
 
+    <a href="index.php">&laquo; Back to file list</a>
+
     <form method="POST">
-      <div class="gridContainer">
+      <div class="gridContainer mt-1">
         <fieldset>
           <legend>New Host</legend>
 

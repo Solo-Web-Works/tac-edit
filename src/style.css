@@ -16,7 +16,9 @@
   --textColor: #e0e0e0;
   --linkColor: #8eb2e1;
 
-  --borderColor:    #333;
-  --primaryColor:   #17466e;
-  --secondaryColor: #8eb2e1;
+  --borderColor:      #333;
+  --primaryColor:     #17466e;
+  --secondaryColor:   #8eb2e1;
+  --dangerColor:      #8e1717;
+  --dangerHoverColor: #e18e8e;
 }

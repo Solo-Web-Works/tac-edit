@@ -36,9 +36,13 @@ button, .btn {
   font-size: 1rem;
   margin: 2rem 0 0;
   padding: 0.75rem 1.5rem;
-  transition: background-color 0.5s ease;
+  transition: all 0.5s ease;
 
-  &:hover { background-color: var(--secondaryColor); }
+  &:hover {
+    background-color: var(--secondaryColor);
+    color: var(--bgColor);
+    text-decoration: none;
+  }
 
   &:focus {
     outline: none;
@@ -46,4 +50,15 @@ button, .btn {
   }
 
   &:active { background-color: darken(var(--primaryColor), 10%); }
+}
+
+button.del, .btn.del {
+  background-color: var(--dangerColor);
+
+  &:hover {
+    background-color: var(--dangerHoverColor);
+    text-decoration: none;
+  }
+
+  &:active { background-color: darken(var(--dangerColor), 10%); }
 }

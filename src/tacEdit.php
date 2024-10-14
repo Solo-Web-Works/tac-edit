@@ -72,8 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>TAC Stack Config Editor</h1>
     <h2>Editing <?php echo htmlspecialchars(basename($file)); ?></h2>
 
+    <a href="index.php">&laquo; Back to file list</a>
+
     <form method="POST">
-      <div class="gridContainer">
+      <div class="gridContainer mt-1">
         <!-- Combined Routers and Services Section -->
         <?php foreach ($combinedData as $name => $data): ?>
           <fieldset>
