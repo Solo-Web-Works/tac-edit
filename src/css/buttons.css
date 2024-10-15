@@ -63,5 +63,5 @@ button.danger, .btn.danger {
   column-gap: 0.5rem;
   justify-content: start;
   min-width: 9.375rem;
-  padding: .5rem 1rem;
+  padding: .5rem 0;
 }

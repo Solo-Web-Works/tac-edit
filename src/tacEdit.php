@@ -4,6 +4,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set("log_errors", true);
 ini_set("error_log", "../logs/error.log");
 
+include('includes/library.php');
+
 // Change line below before building docker image
 // $file = '/data/' . basename($_GET['file']);
 $file        = '../config-test/' . basename($_GET['file']);
@@ -51,9 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   file_put_contents($file, $updatedYaml);
 
-  // Redirect to avoid form resubmission
-  header('Location: tacCommit.php?file=' . urlencode(basename($file)));
-  exit();
+  saveVersion(basename($file), $updatedYaml, $_POST['msgVersion']);
+
+  $msgSuccess = 'Host '.basename($_GET['file'],'.yml').' edited successfully!';
+}
+
+// Optionally, add a success message
+if (isset($_GET['added'])) {
+  $msgSuccess = 'Host '.basename($_GET['file'],'.yml').' added successfully!';
 }
 ?>
 
@@ -69,16 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <div id="wrapper">
     <h1>TAC Stack Config Editor</h1>
-    <h2>Editing <?php echo htmlspecialchars(basename($file)); ?></h2>
 
-    <a href="index.php">&laquo; Back to file list</a>
+    <?php if (isset($msgSuccess)): ?>
+      <p class="success p-1 mb-2"><?php echo $msgSuccess; ?></p>
+    <?php endif; ?>
 
     <form method="POST">
-      <div class="gridContainer mt-1">
+      <div class="gridContainer mt-1 mb-3">
         <!-- Combined Routers and Services Section -->
         <?php foreach ($combinedData as $name => $data): ?>
           <fieldset>
-            <legend>Server: <?php echo htmlspecialchars($name); ?></legend>
+            <legend>Editing Server: <?php echo htmlspecialchars($name); ?></legend>
 
             <!-- Router Data -->
             <h3>Router</h3>
@@ -105,11 +113,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Pass Host Header:
               <input type="checkbox" name="units[<?php echo $name; ?>][service][loadBalancer][passHostHeader]" <?php echo $data['service']['loadBalancer']['passHostHeader'] ? 'checked' : ''; ?> />
             </label>
+
+            <label for="">Version Message:
+              <input type="text" name="msgVersion" />
+            </label>
           </fieldset>
         <?php endforeach; ?>
+
+        <div class="versions">
+          <h2>Version History</h2>
+          <?php
+          $versions = getHostVersions(basename($file));
+
+          if (count($versions) > 0) {
+            echo '<ul>';
+            foreach ($versions as $version) {
+              echo '<li><strong>'.$version['version'].'</strong> - '.$version['date'].' - '.$version['comment'].'</li>';
+            }
+            echo '</ul>';
+          } else {
+            echo '<p>No versions found for this host.</p>';
+          }
+          ?>
+        </div>
       </div>
 
-      <button type="submit">Save Changes</button>
+      <div class="btnGroup">
+        <a class="btn danger" href="index.php">Cancel Changes</a>
+        <button class="success" type="submit">Save Changes</button>
+      </div>
     </form>
   </div>
 </body>

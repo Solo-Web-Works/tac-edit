@@ -50,5 +50,7 @@
 
 .success {
   background-color: var(--successColor);
+  border: 1px solid var(--successHover);
+  border-radius: 5px;
   color: darken(var(--primaryColor), 10%);
 }

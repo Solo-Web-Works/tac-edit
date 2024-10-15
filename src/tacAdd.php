@@ -4,6 +4,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set("log_errors", true);
 ini_set("error_log", "../logs/error.log");
 
+include('includes/library.php');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
   // Gather form data
   $newHostName = $_POST['newHostName'];
@@ -39,10 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
   // $newFileName = '/data/' . $newHostName . '.yml';  // Create a new file for this host
   $newFileName = '../config-test/' . $newHostName . '.yml';  // Create a new file for this host
   $newYamlContent = yaml_emit($newYamlData);
+
   file_put_contents($newFileName, $newYamlContent);
 
+  saveVersion(basename($newFileName), $newYamlContent, $_POST['msgVersion']);
+
   // Redirect after creation to avoid form resubmission
-  header('Location: tacCommit.php?file=' . urlencode($newHostName . '.yaml'));
+  header('Location: tacEdit.php?added=1&file='.urlencode($newHostName.'.yml'));
   exit();
 }
 ?>
@@ -59,14 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
 <body>
   <div id="wrapper">
     <h1>TAC Stack Config Editor</h1>
-    <h2>Add a New Host</h2>
 
-    <a href="index.php">&laquo; Back to file list</a>
+    <?php if (isset($msgSuccess)): ?>
+      <p class="success p-1 mb-2"><?php echo $msgSuccess; ?></p>
+    <?php endif; ?>
 
     <form method="POST">
       <div class="gridContainer mt-1">
         <fieldset>
-          <legend>New Host</legend>
+          <legend>Add New Host</legend>
 
           <input type="hidden" name="newHost" value="1" />
 
@@ -93,10 +99,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
           <label>Pass Host Header:
             <input type="checkbox" name="newHostPassHostHeader" />
           </label>
+
+          <label>Version Message:
+            <input type="text" name="msgVersion" />
+          </label>
         </fieldset>
       </div>
 
-      <button type="submit">Create New Host</button>
+
+      <div class="btnGroup">
+        <a class="btn danger" href="index.php">Cancel Add</a>
+        <button class="success" type="submit">Add New Host</button>
+      </div>
     </form>
   </div>
 </body>
