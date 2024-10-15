@@ -2,7 +2,7 @@
 // Remove log lines before building docker image
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set("log_errors", true);
-ini_set("error_log", "../logs/error.log");
+ini_set("error_log", "/logs/error.log");
 
 include('includes/library.php');
 
@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
   ];
 
   // Change line below before building docker image
-  // $newFileName = '/data/' . $newHostName . '.yml';  // Create a new file for this host
-  $newFileName = '../config-test/' . $newHostName . '.yml';  // Create a new file for this host
+  $newFileName = '/data/' . $newHostName . '.yml';  // Create a new file for this host
+  // $newFileName = '../config-test/' . $newHostName . '.yml';  // Create a new file for this host
   $newYamlContent = yaml_emit($newYamlData);
 
   file_put_contents($newFileName, $newYamlContent);

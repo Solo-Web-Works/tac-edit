@@ -2,14 +2,14 @@
 // Remove log lines before building docker image
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set("log_errors", true);
-ini_set("error_log", "/opt/tac-edit/logs/error.log");
+ini_set("error_log", "/logs/error.log");
 
 include('includes/library.php');
 
 // Change line below before building docker image
-// $directory = '/data/';
-// $files = scandir('/data');
-$directory = '/opt/tac-edit/config-test/';
+$directory = '/data/';
+$files = scandir('/data');
+// $directory = '/opt/tac-edit/config-test/';
 $files = scandir($directory);
 
 // Handle deletion of a host directly in index.php

@@ -5,6 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /var/www/html
+          ignore:
+            - node_modules/
+
     container_name: TAC-Edit
     restart: unless-stopped
 
@@ -17,6 +25,6 @@ services:
 
     volumes:
       - /opt/tac-edit/config-test:/data  # Mounts the data folder on the host to /data in the container
-      - /opt/tac-edit/logs:/logs  # Mounts the data folder on the host to /data in the container
-      - /opt/tac-edit/versions:/versions  # Mounts the data folder on the host to /data in the container
+      - /opt/tac-edit/logs:/logs  # Mounts the logs folder on the host to /logs in the container
+      - /opt/tac-edit/versions:/versions  # Mounts the versions folder on the host to /versions in the container
       - /opt/tac-edit/config/php.ini:/usr/local/etc/php/php.ini  # Custom PHP configuration

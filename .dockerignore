@@ -1,1 +1,6 @@
 config-test
+logs/*.log
+versions/*.yml
+versions/*.yaml
+versions/*.json
+php-dev.ini

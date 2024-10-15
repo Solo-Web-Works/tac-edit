@@ -2,13 +2,13 @@
 // Remove log lines before building docker image
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set("log_errors", true);
-ini_set("error_log", "../logs/error.log");
+ini_set("error_log", "/logs/error.log");
 
 include('includes/library.php');
 
 // Change line below before building docker image
-// $file = '/data/' . basename($_GET['file']);
-$file        = '../config-test/' . basename($_GET['file']);
+$file = '/data/' . basename($_GET['file']);
+// $file        = '../config-test/' . basename($_GET['file']);
 $yamlData   = file_get_contents($file);
 $parsedYaml = yaml_parse($yamlData);
 $parsedYaml = $parsedYaml['http'];

@@ -2,10 +2,10 @@
 function saveVersion($hostName, $yamlContent, $comment) {
   // Load the metadata file
 
-  // Change pathss below before building docker image
+  // Change paths below before building docker image
 
-  // $versionsFile = '/versions/versions.json';
-  $versionsFile = '/opt/tac-edit/versions/versions.json';
+  $versionsFile = '/versions/versions.json';
+  // $versionsFile = '/opt/tac-edit/versions/versions.json';
   $versionsData = json_decode(file_get_contents($versionsFile), true);
 
   // Determine the new version number
@@ -14,8 +14,8 @@ function saveVersion($hostName, $yamlContent, $comment) {
   $newVersion = 'v' . $newVersionNumber;
 
   // Save the new versioned YAML file
-  // $newFileName = '/versions/' . basename($hostName,'.yml') . "_$newVersion.yaml";
-  $newFileName = '/opt/tac-edit/versions/' . basename($hostName,'.yml') . "_$newVersion.yml";
+  $newFileName = '/versions/' . basename($hostName,'.yml') . "_$newVersion.yml";
+  // $newFileName = '/opt/tac-edit/versions/' . basename($hostName,'.yml') . "_$newVersion.yml";
   file_put_contents($newFileName, $yamlContent);
 
   // Update the metadata
@@ -31,8 +31,8 @@ function saveVersion($hostName, $yamlContent, $comment) {
 }
 
 function getHostVersions($hostName) {
-  // $versionsFile = '/versions/versions.json';
-  $versionsFile = '/opt/tac-edit/versions/versions.json';
+  $versionsFile = '/versions/versions.json';
+  // $versionsFile = '/opt/tac-edit/versions/versions.json';
   $versionsData = json_decode(file_get_contents($versionsFile), true);
 
   return $versionsData[$hostName]['versions'] ?? [];
@@ -40,8 +40,8 @@ function getHostVersions($hostName) {
 
 function delHostVersions($hostName) {
   // Load the versions.json file
-  // $versionsFile = '/versions/versions.json';
-  $versionsFile = '/opt/tac-edit/versions/versions.json';
+  $versionsFile = '/versions/versions.json';
+  // $versionsFile = '/opt/tac-edit/versions/versions.json';
   $versionsData = json_decode(file_get_contents($versionsFile), true);
 
   // Check if the host exists in the metadata
@@ -55,7 +55,8 @@ function delHostVersions($hostName) {
     // Delete all versioned YAML files for the host
     // $versionedFiles = glob("/versions/{$hostName}_v*.yml");  // Find all versioned files
     $hostBase = basename($hostName, '.yml');
-    $versionedFiles = glob("/opt/tac-edit/versions/{$hostBase}_v*.yml");  // Find all versioned files
+    $versionedFiles = glob("/versions/{$hostBase}_v*.yml");  // Find all versioned files
+    // $versionedFiles = glob("/opt/tac-edit/versions/{$hostBase}_v*.yml");  // Find all versioned files
 
     foreach ($versionedFiles as $file) {
       if (file_exists($file)) {

@@ -21,7 +21,7 @@ RUN mkdir -p /var/log/apache2 && \
     chmod -R 755 /var/log/apache2
 
 # Copy PHP files into the container
-COPY src/* /var/www/html
+COPY src/ /var/www/html/
 
 # Expose port 80
 EXPOSE 80
