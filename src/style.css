@@ -3,7 +3,6 @@
   * @author Keith Solomon
   */
 
-
 /* Load styles */
 @import url(css/reset.css);
 @import url(css/utilities.css);
@@ -27,4 +26,12 @@
   --successHover:   color-mix(in srgb, var(--successColor) 60%, var(--secondaryColor) 40%);
   --dangerColor:    #8e1717;
   --dangerHover:    color-mix(in srgb, var(--dangerColor) 80%, var(--secondaryColor) 20%);
+}
+
+body {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  padding: 0;
 }
