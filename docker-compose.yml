@@ -15,6 +15,7 @@ services:
 
     container_name: TAC-Edit
     restart: unless-stopped
+    user: 33:33  # Runs the container as the www-data user and group
 
     environment:
       - APACHE_RUN_USER=www-data
@@ -24,7 +25,8 @@ services:
       - "4040:80"  # Maps port 80 in the container to port 8080 on the host
 
     volumes:
-      - /opt/tac-edit/config-test:/data  # Mounts the data folder on the host to /data in the container
+      # - /opt/tac-edit/config-test:/data  # Mounts the data folder on the host to /data in the container
+      - /opt/t-a-c-proxy/traefik/config:/data  # Mounts the data folder on the host to /data in the container
       - /opt/tac-edit/logs:/logs  # Mounts the logs folder on the host to /logs in the container
       - /opt/tac-edit/versions:/versions  # Mounts the versions folder on the host to /versions in the container
       - /opt/tac-edit/config/php.ini:/usr/local/etc/php/php.ini  # Custom PHP configuration

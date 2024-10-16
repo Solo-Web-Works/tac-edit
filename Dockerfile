@@ -28,3 +28,4 @@ EXPOSE 80
 
 # Set permissions for the web user
 RUN chown -R www-data:www-data /var/www/html
+USER root
