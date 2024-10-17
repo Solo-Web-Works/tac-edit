@@ -1,7 +1,4 @@
 <?php
-// Remove log lines before building docker image
-error_reporting(E_ALL & ~E_NOTICE);
-
 include('includes/library.php');
 
 // Change line below before building docker image

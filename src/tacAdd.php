@@ -1,7 +1,4 @@
 <?php
-// Remove log lines before building docker image
-error_reporting(E_ALL & ~E_NOTICE);
-
 include('includes/library.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {

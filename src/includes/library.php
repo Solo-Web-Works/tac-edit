@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
+
 function saveVersion($hostName, $yamlContent, $comment) {
   // Load the metadata file
 
