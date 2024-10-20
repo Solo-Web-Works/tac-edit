@@ -30,3 +30,6 @@ services:
       - /opt/tac-edit/logs:/logs  # Mounts the logs folder on the host to /logs in the container
       - /opt/tac-edit/versions:/versions  # Mounts the versions folder on the host to /versions in the container
       - /opt/tac-edit/config/php.ini:/usr/local/etc/php/php.ini  # Custom PHP configuration
+
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false" # Disables Watchtower
