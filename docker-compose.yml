@@ -2,19 +2,20 @@ name: tac-edit
 
 services:
   tac-edit:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    develop:
-      watch:
-        - action: sync
-          path: ./src
-          target: /var/www/html
-          ignore:
-            - node_modules/
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./src
+    #       target: /var/www/html
+    #       ignore:
+    #         - node_modules/
 
     container_name: TAC-Edit
     restart: unless-stopped
+    image: ghcr.io/solo-web-works/tac-edit:main
     user: 33:33  # Runs the container as the www-data user and group
 
     environment:
