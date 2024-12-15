@@ -1,16 +1,16 @@
 # TAC-Edit
-
-Edit config files for TAC-Stack (Traefik-Authelia-Cloudflare) with ease.
-
-Built using PHP and Apache, TAC-Edit allows you to easily edit the dynamic configuration files for Traefik, the reverse proxy, in the TAC-Stack.  It also provides versioning of the files, so you can roll back to previous versions (in development).
+TAC-Edit is a web-based editor for the dynamic configuration files of Traefik, the reverse proxy, in the TAC-Stack.  It also provides versioning of the config files, so you can roll back to previous versions (in development).
 
 ## Features
-- Easy CRUD operations on Traefik dynamic config files
+- Built using PHP and Apache
+- Easy web-based CRUD operations on Traefik dynamic config files
 - Versioning of file edits
 - Rollback to previous versions (in development)
 
-## Screenshots
+## Notes
+- Currently, the basic features work.  There are some features that are still in development, such as the versioning system.  The versioning system is currently in place, but the rollback feature is not yet implemented.  The versioning system is a simple system that creates a new file with the current date and time as the filename, and copies the current config file to that new file.  The rollback feature will allow you to select a previous version and copy it back to the config file.  If you need to roll back, you can do so manually by copying the contents of the version file back to the config file.
 
+## Screenshots
 ### Home page:
 ![Home page](screenshots/home.png)
 
