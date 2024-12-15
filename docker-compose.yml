@@ -2,17 +2,6 @@ name: tac-edit
 
 services:
   tac-edit:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    # develop:
-    #   watch:
-    #     - action: sync
-    #       path: ./src
-    #       target: /var/www/html
-    #       ignore:
-    #         - node_modules/
-
     container_name: TAC-Edit
     restart: unless-stopped
     image: ghcr.io/solo-web-works/tac-edit:main
@@ -26,7 +15,6 @@ services:
       - "4040:80"  # Maps port 80 in the container to port 8080 on the host
 
     volumes:
-      # - /opt/tac-edit/config-test:/data  # Mounts the data folder on the host to /data in the container
       - /opt/t-a-c-proxy/traefik/config:/data  # Mounts the data folder on the host to /data in the container
       - /opt/tac-edit/logs:/logs  # Mounts the logs folder on the host to /logs in the container
       - /opt/tac-edit/versions:/versions  # Mounts the versions folder on the host to /versions in the container
