@@ -5,7 +5,7 @@ include('includes/library.php');
 $directory = '/data/';
 $files = scandir('/data');
 // $directory = '/opt/tac-edit/config-test/';
-$files = scandir($directory);
+// $files = scandir($directory);
 
 // Handle deletion of a host directly in index.php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteHost'])) {
@@ -39,11 +39,15 @@ if (isset($_GET['deleted'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TAC Stack Config Editor</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="images/icon.webp" type="image/webp">
 </head>
 
 <body>
   <div id="wrapper">
-    <h1>TAC Stack Config Editor</h1>
+    <div class="flex gap-1">
+      <img src="images/icon.webp" alt="TAC-Edit Icon" class="h-12 w-12"> <h1>TAC Stack Config Editor</h1>
+    </div>
 
     <?php if (isset($msgSuccess)): ?>
       <p class="success p-1 mb-2"><?php echo $msgSuccess; ?></p>
@@ -57,7 +61,7 @@ if (isset($_GET['deleted'])) {
 
       <form method="POST">
         <?php foreach ($files as $file): ?>
-          <?php if (pathinfo($file, PATHINFO_EXTENSION) === 'yaml' || pathinfo($file, PATHINFO_EXTENSION) === 'yml'): ?>
+          <?php if (pathinfo($file, PATHINFO_EXTENSION) === 'yml'): ?>
             <div class="fileEntry row">
               <div class="cell"><?php echo htmlspecialchars($file); ?></div>
               <div class="btnGroup mr-1">

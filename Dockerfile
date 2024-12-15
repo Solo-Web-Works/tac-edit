@@ -21,6 +21,8 @@ RUN mkdir -p /var/log/apache2 && \
     chmod -R 755 /var/log/apache2
 
 # Copy PHP files into the container
+ARG CACHEBUST=1
+RUN echo "$CACHEBUST"
 COPY src/ /var/www/html/
 
 # Expose port 80

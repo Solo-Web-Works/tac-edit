@@ -48,6 +48,31 @@
 .pr-3 { padding-right: 3rem; }
 .pr-4 { padding-right: 4rem; }
 
+/* Height and Width */
+.h-12 { height: 3rem; }
+.w-12 { width: 3rem; }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-none { flex: none; }
+
+.gap-1 { gap: 1rem; }
+.gap-2 { gap: 2rem; }
+.gap-3 { gap: 3rem; }
+.gap-4 { gap: 4rem; }
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+
+/* Misc Utilities */
 .success {
   background-color: var(--successColor);
   border: 1px solid var(--successHover);
