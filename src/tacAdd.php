@@ -54,11 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newHost'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TAC-Stack Config Editor - Add New Host</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="images/icon.webp" type="image/webp">
 </head>
 
 <body>
   <div id="wrapper">
-    <h1>TAC Stack Config Editor</h1>
+    <div class="flex gap-1">
+      <img src="images/icon.webp" alt="TAC-Edit Icon" class="h-12 w-12"> <h1>TAC Stack Config Editor</h1>
+    </div>
 
     <?php if (isset($msgSuccess)): ?>
       <p class="success p-1 mb-2"><?php echo $msgSuccess; ?></p>
